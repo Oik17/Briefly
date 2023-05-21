@@ -1,0 +1,106 @@
+body {
+    background-image: linear-gradient(#3B3837, #181818);
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 500px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.head .head1 {
+  margin-top: 180px;
+  color: #FF0000;
+  font-size: 60px;
+}
+
+.head .head2 {
+  color: #FF0000;
+}
+
+.form1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form1 .inputform {
+  width: 400px;
+  height: 30px;
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 18px;
+}
+
+.form1 .button1 {
+  margin-left: 3px;
+  border: 1px solid red;
+  border-radius: 18px;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 600px) {
+  .head .head1 {
+    font-size: 40px;
+    margin-top: 180px; /* Adjust the margin-top value as per your requirement */
+  }
+
+  .head .head2 {
+    font-size: 16px;
+  }
+
+  .form1 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form1 .inputform {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 100px;
+  }
+
+  .form1 .button1 {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}
+
+
+.output {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.output .transcriptoutput {
+  max-width: 80%;
+  width: 100%;
+  padding: 15px;
+  background-color: #282828;
+  border: 1px solid #282828;
+  border-radius: 9px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.output .summaryoutput {
+  max-width: 80%;
+  width: 100%;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #282828;
+  border: 1px solid #282828;
+  border-radius: 9px;
+}

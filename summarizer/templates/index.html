@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap"
+    rel="stylesheet">
+  <style>
+      body {
+    background-image: linear-gradient(#3B3837, #181818);
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 500px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.head .head1 {
+  margin-top: 180px;
+  background-image: linear-gradient(#A22424, #FF3434);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 60px;
+}
+
+.head2 {
+  color: #F7DDDD;
+  
+}
+
+.form1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form1 .inputform {
+  width: 400px;
+  height: 30px;
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 18px;
+}
+
+.form1 .button1 {
+  margin-left: 3px;
+  border: 1px solid #A22424;
+  color: #F7DDDD;
+  background-image: linear-gradient(#A22424, #FF3434);
+  border-radius: 18px;
+}
+.form1 .button1:hover {
+  background-image: linear-gradient(#A22424, #A22424);
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 600px) {
+  .head .head1 {
+    font-size: 40px;
+    margin-top: 180px; /* Adjust the margin-top value as per your requirement */
+  }
+
+  .head .head2 {
+    font-size: 16px;
+  }
+
+  .form1 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form1 .inputform {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 100px;
+  }
+
+  .form1 .button1 {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}
+
+
+.output {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.output .transcriptoutput {
+  max-width: 80%;
+  width: 100%;
+  padding: 15px;
+  background-color: #282828;
+  border: 1px solid #282828;
+  border-radius: 9px;
+  color: #F9F6EE;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.output .summaryoutput {
+  max-width: 80%;
+  width: 100%;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #282828;
+  border: 1px solid #282828;
+  color: #F9F6EE;
+  border-radius: 9px;
+}
+  </style>
+</head>
+
+<body>
+  <div class="why">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <h2 class="navbar-brand">BRIEFLY</h2>
+        </div>
+        <ul class="nav navbar-nav">
+
+        </ul>
+      </div>
+    </nav>
+    <div class="head">
+      <h1 class="head1">Summarizing Made Easy</h1>
+      <br><br>
+      <p class="head2">Streamline your YouTube video experience with our cutting-edge video summarizer website. Save
+        time and effortlessly grasp the main points of any YouTube video with our automated summarization technology.
+        Get concise, accurate summaries that capture the essence of the content, allowing you to quickly decide which
+        videos are worth watching. Enhance your information consumption and make the most out of your YouTube browsing
+        with our efficient and user-friendly video summarizer website.</p>
+    </div>
+    <form class="form1">
+      <input name= "videoId" class="inputform" type="text" id="videoId" placeholder="Paste code here">
+      <button type="submit" class="button1 btn btn-danger" onclick="getTranscript()">Go</button>
+      <!-- <button type="submit" class="button1 btn btn-danger">Summary</button> -->
+    </form>
+    <output class="output">
+      <div id="transcripts" class="transcriptoutput">{{transcript}}</div>
+      <button type="button" class="btn btn-danger" onclick="copyToClipboard()"><i class="bi bi-clipboard"></i></button>
+      <div id="summary" class="summaryoutput">{{summary}}</div>
+      <button type="button" class="btn btn-danger" onclick="copyToClipboard1()"><i class="bi bi-clipboard"></i></button>
+    </output>
+    
+    <script>
+      function copyToClipboard() {
+        var text = document.getElementById("transcripts").innerText;
+
+        var tempInput = document.createElement("input");
+        tempInput.value = text;
+
+        document.body.appendChild(tempInput);
+
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999);
+
+        document.execCommand("copy");
+
+        document.body.removeChild(tempInput);
+
+        alert("Copied to clipboard: " + text);
+      }
+      function copyToClipboard() {
+        var text = document.getElementById("transcripts").innerText;
+
+        var tempInput = document.createElement("input");
+        tempInput.value = text;
+
+        document.body.appendChild(tempInput);
+
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999);
+
+        document.execCommand("copy");
+
+        document.body.removeChild(tempInput);
+
+        alert("Copied to clipboard: " + text);
+      }
+      function copyToClipboard1() {
+        var text = document.getElementById("summary").innerText;
+
+        var tempInput = document.createElement("input");
+        tempInput.value = text;
+
+        document.body.appendChild(tempInput);
+
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999);
+
+        document.execCommand("copy");
+
+        document.body.removeChild(tempInput);
+
+        alert("Copied to clipboard: " + text);
+      }  
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+    
+  </div>
+</body>
+
+</html>
